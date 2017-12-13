@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<logger name="com.eling" level="debug" />
+	<logger name="jdbc.sqlonly" level="debug" />
+	<logger name="org.springframework.security" level="debug" />
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>\${user.home}/${project.artifactId}/logs/logFile.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>3000</maxHistory>
+			<maxFileSize>100MB</maxFileSize>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-5level %d{MM-dd HH:mm:ss.SSS} [%thread] %logger{36} -%msg%n</pattern>
+			<charset>UTF-8</charset>
+			<immediateFlush>true</immediateFlush>
+		</encoder>
+	</appender>
+
+    <!-- 只用保存输出error级别的日志 -->
+    <appender name="file.error"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>\${user.home}/${project.artifactId}/logs/logFile.%d{yyyy-MM-dd}.error.%i.log.gz
+            </fileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>3000</maxHistory>
+            <maxFileSize>100MB</maxFileSize>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-5level %d{MM-dd HH:mm:ss.SSS} [%thread] %logger{36} -%msg%n</pattern>
+            <charset>UTF-8</charset>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+        <!-- 下面为配置只输出error级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%-5level %d{HH:mm:ss.SSS} [%thread] %logger{36} -%msg%n</Pattern>
+		</layout>
+	</appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="${app.log.appender}"/>
+        <appender-ref ref="file.error"/>
+    </root>
+</configuration>
