@@ -12,7 +12,6 @@ desktop.ini
 logs
 dev.properties
 **/node_modules/*
-custom.config.js
 **/npm-debug.log
 overlays
 *.iml
