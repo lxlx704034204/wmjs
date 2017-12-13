@@ -1,0 +1,138 @@
+.user-wrap {
+    margin-top:100px;
+    max-width:560px
+}
+.user-field {
+    float:left;
+    width:100%;
+    margin-top:10px;
+    padding:50px 50px 90px 50px ;
+    background-color:#fff;
+    box-shadow:1px 2px 10px #999
+}
+.user-field.fixed {
+    min-height:380px
+}
+.input-group {
+    margin-top:20px;
+    border-radius:4px
+}
+.input-group input {
+    border:1px solid #999;
+    border-radius:4px!important
+}
+.input-group .group-tips {
+    position:absolute;
+    width:100%;
+    top:0;
+    left:110%;
+    text-align:left
+}
+.input-group .group-tips.one-line {
+    line-height:40px
+}
+.input-group .group-tips.two-line {
+    font-size:12px;
+    line-height:20px
+}
+@media (max-width:991px) {
+    .input-group {
+        margin-top:0
+    }
+    .input-group .group-tips {
+        position:relative;
+        left:0;
+        top:0
+    }
+}.btn-reget-verify {
+     display:block
+ }
+.signup-verify {
+    width:60%!important
+}
+.btn-verify {
+    width:35%;
+    height:40px;
+    margin-left:5%
+}
+.btn-next {
+    margin-top:70px;
+    width:150px
+}
+.copyright-user {
+    margin-top:50px;
+    font-size:13px
+}
+.user-tips {
+    font-size:20px;
+    color:#fff;
+    line-height:24px
+}
+.title-right-corner {
+    float:right;
+    font-size:15px;
+    margin-top:25px
+}
+@media (max-width:991px) {
+    .title-right-corner {
+        margin-top:0
+    }
+}.input-group {
+     width:100%;
+     margin-top:50px;
+     border:1px solid #999;
+     border-radius:4px
+ }
+.input-group .form-control {
+    border:0
+}
+.btn-login {
+    width:100%;
+    height:40px;
+    margin-top:30px;
+    background-color:#00b38a;
+    color:#fff;
+    font-size:15px
+}
+.btn-login:hover {
+    color:#fff
+}
+.btn-signup {
+    width:50%;
+    height:40px;
+    margin-top:33px;
+    background-color:#00b38a;
+    color:#fff
+}
+.btn-signup:hover {
+    color:#fff
+}
+.login-other {
+    width:100%;
+    height:40px;
+    margin-top:20px
+}
+.login-other .item {
+    cursor:pointer;
+    float:left;
+    width:33.33333333%;
+    height:100%
+}
+.title-signup {
+    width:100%;
+    margin-top:60px
+}
+.tips-signup {
+    margin-top:30px
+}
+.forget-pwd {
+    margin-top:5px
+}
+.login-group-tips {
+    text-align:left;
+    margin:10px 0;
+    position:absolute
+}
+.group-tips {
+    padding-left:50px
+}

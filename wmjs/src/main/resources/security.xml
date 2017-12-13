@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:p="http://www.springframework.org/schema/p"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+ 	<http  pattern="/assets*/assets/**"  security="none"/>
+	<http request-matcher="regex"
+		pattern="/assets/eling/(\b((?!mobile)\w)+\b[\w\W]*|)|/assets/\b((?!eling)\w)+\b/[\w\W]*"
+		security="none" />
+   
+	<!-- 登陆页 -->
+    <http  pattern="/sign_in*" security="none"/>
+    <!-- 注册页 -->
+    <http  pattern="/sign_up*" security="none"/>
+    <http  pattern="/app/api/register/**" security="none"/>
+    <http  pattern="/app/api/callLog/save" security="none"/>
+    <http  pattern="/memberhealth*" security="none"/>
+    <http  pattern="/app/api/monitorrecord/save" security="none"/>
+    <http  pattern="/assets/eling/mobile/app/**" security="none"/>
+    <http  pattern="/emailverification*" security="none"/>
+    <http  pattern="/verificationback*" security="none"/>
+    <http  pattern="/html/findpwd*" security="none"/>
+    <http  pattern="/api/user/encodetoken*" security="none"/>
+    <!-- 新闻 -->
+    <http  pattern="/app/news/**/*.html" security="none"/>
+
+	<http  pattern="/app/webnews/**/*.html" security="none"/>
+    
+	<http pattern="/**/*.jpg" security="none" />
+	<http pattern="/**/*.jpeg" security="none" />
+	<http pattern="/**/*.png" security="none" />
+	<http pattern="/**/*.gif" security="none" />
+	<http pattern="/**/*.svg" security="none" />
+	<http pattern="/**/*.css" security="none" />
+	<http pattern="/**/*.js" security="none" />  
+    
+    <!-- 机构同步-->
+    <http  pattern="/app/api/organizationapply/syncdata" security="none"/>
+    <http  pattern="/app/api/organization/administrativearea" security="none"/>
+    <!-- 用户code校验 -->
+    <http  pattern="/app/api/home/checkcode" security="none"/>
+    
+    <http  pattern="/app/api/inteligentframe/**/ctt" security="none"/>
+    <!-- 获取token -->
+    <http  pattern="/app/api/messageinfo/querybytype" security="none"/>
+    <!-- 机构名称校验 -->
+    <http  pattern="/app/api/home/checkname" security="none"/>
+    <http  pattern="/api/callcenter/callback" security="none"/>
+    <http  pattern="/app/api/callcenter/callback" security="none"/>
+    <http  pattern="/api/bedstatus/save" security="none"/>
+	<http  pattern="/app/api/bedstatus/save" security="none"/>
+	<http  pattern="/app/api/external/memberbycard" security="none"/>
+	<http  pattern="/app/api/external/paybycard" security="none"/>
+	<http  pattern="/app/api/external/balancebycard" security="none"/>
+	<!-- 廊坊 -->
+	<http pattern="/app/api/generaluser/getpicture*" security="none" />
+	<http pattern="/app/api/generaluser/phoneexists*" security="none" />
+	<http pattern="/app/api/generaluser/getvalidatecode*" security="none" />
+	<http pattern="/app/api/generaluser/submitmemorial*" security="none" />
+	<http pattern="/app/api/appnews/query*" security="none" />
+	<http pattern="/app/api/appnews/{pkAppNews}/querycontent" security="none" />
+
+	<http pattern="/app/api/webnews/query*" security="none" />
+	<http pattern="/app/api/webnews/{pkWebNews}/querycontent" security="none" />
+
+	<http pattern="/app/api/generaluser/findpwdvalidate" security="none" />
+	<http pattern="/app/api/generaluser/updatepwd" security="none" />
+	<http pattern="/app/api/generaluser/findpwdvalidatepic" security="none" />
+	<http pattern="/app/api/memorialdetail/query" security="none" />
+	<http pattern="/app/api/membermemorial/query" security="none" />
+	<http pattern="/app/api/attachment/memorial/**" security="none" />
+	<http pattern="/app/api/generaluser/findpwdvalidatephone" security="none" />
+
+    <!-- 服务包同步 -->
+	<http pattern="/app/api/orgpackagerelation/syncservicepackage"
+		security="none" />
+    <http auto-config="true" entry-point-ref="authenticationEntryPoint">
+     	<!-- 找回密码-->
+		<intercept-url pattern="/app/api/user/getvalidatecode*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/user/validateCode*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/user/updateuserpwd*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/user/sendfindpwdemail*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/user/validatefindpwdemail*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+    	<!-- 注册 -->
+		<intercept-url pattern="/app/api/organizationuser/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 小壹秘书APP注册及使用协议 -->
+		<intercept-url pattern="/app/api/messagemanagement/query"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	     <!-- 员工app 根据用户名获取手机号 -->
+		<intercept-url pattern="/app/api/commonuser/query"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 扫二维码无须认证 -->
+	    <intercept-url pattern="/app/api/nosecurity/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 重置密码 -->
+		<intercept-url pattern="/app/requestRecoveryToken*"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <intercept-url pattern="/app/updatePassword*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 设备服务，暂时设置为无需认证 -->
+	    <intercept-url  pattern="/app/api/device/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 小壹秘书APP注册及使用协议 -->
+		<intercept-url pattern="/app/api/messagemanagement/query"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 健康巡检html 请求 -->
+		<intercept-url pattern="/app/api/phyexamreport/queryreportdata"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/phyexamreport/queryhistory"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/phyexamreport/getbypk"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/attachment/memorial/**"
+					   access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	    <!-- 活动图片 -->
+		<intercept-url pattern="/app/api/attachment/activityphoto/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<!-- 长者图片 -->
+		<intercept-url pattern="/app/api/attachment/personalphoto/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+ 		<!-- 活动报告图片 -->
+		<intercept-url pattern="/app/api/attachment/activityreportphoto/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<!-- 系统消息图片 -->
+		<intercept-url pattern="/app/api/attachment/message/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+ 		<!-- 集成接口 -->
+		<intercept-url pattern="/app/api/integration/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+		<!-- 支付集成接口 -->
+		<intercept-url pattern="/app/api/alipay/notify**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/app/api/wechat/notify/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<!--被助手服务器调用接口 -->
+		<intercept-url pattern="/app/api/callApi/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<!--睡眠监控上行数据调用接口 -->
+		<intercept-url pattern="/app/api/sleepuplinkapi/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<intercept-url pattern="/app/api/external/memberbycard*"
+					   access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<intercept-url pattern="/app/api/external/paybycard*"
+					   access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+		<intercept-url pattern="/app/api/external/balancebycard*"
+					   access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+
+		<intercept-url pattern="/app/api/share/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/richeditor/richtexteditor/**"
+			access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+		<intercept-url pattern="/assets/eling/mobile/**" access="ROLE_USER" />
+ 		
+ 		<intercept-url pattern="/**" access="ROLE_USER"/>
+		<form-login login-page="/sign_in"
+			always-use-default-target="true" authentication-success-handler-ref="passwordStrategyChecker"
+			authentication-failure-handler-ref="authenticationfailurehandler" />
+   		<custom-filter ref="tokenBasedPreAuthFilter" position="PRE_AUTH_FILTER" />
+		<custom-filter ref="concurrentSessionFilter" position="CONCURRENT_SESSION_FILTER" />
+		<custom-filter ref="logoutPreFilter" before="LOGOUT_FILTER" />
+
+		<!-- 自定义退出登录filter -->
+		<!-- <custom-filter ref="logoutFilter" position="LOGOUT_FILTER" /> -->
+		<!-- <custom-filter ref="elingRememberMeFilter" after="FORM_LOGIN_FILTER" 
+			/> -->
+		<logout delete-cookies="JSESSIONID" success-handler-ref="elingLogoutSuccessHandler" />
+
+		<remember-me services-ref="elingRememberMeServices" />
+		<session-management
+			session-authentication-strategy-ref="csas" />
+    </http>
+	
+	
+		
+	<beans:import resource="security-session.xml" />
+	<beans:import resource="security-token.xml" />
+		
+	<beans:bean id="logoutRequestMatcher"
+		class="org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.FilterProcessUrlRequestMatcher">
+		<beans:constructor-arg value="/j_spring_security_logout"
+			index="0" />
+	</beans:bean>
+	<beans:bean id="securityContextLogoutHandler"
+		class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+	<beans:bean id="cookieClearingLogoutHandler"
+		class="org.springframework.security.web.authentication.logout.CookieClearingLogoutHandler">
+		<beans:constructor-arg value="JSESSIONID" index="0" />
+	</beans:bean>
+	<beans:bean id="logoutFilter"
+		class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<beans:constructor-arg ref="elingLogoutSuccessHandler"
+			index="0" />
+		<beans:constructor-arg index="1">
+			<beans:list>
+				<beans:ref bean="elingLogoutHandler" />
+				<beans:ref bean="securityContextLogoutHandler" />
+				<beans:ref bean="elingRememberMeServices" />
+				<beans:ref bean="cookieClearingLogoutHandler" />
+			</beans:list>
+		</beans:constructor-arg>
+		<beans:property name="logoutRequestMatcher" ref="logoutRequestMatcher" />
+	</beans:bean>
+
+	<beans:bean id="passwordStrategyChecker"
+		class="com.eling.elcms.core.security.filter.PasswordStrategyCheckeAuthenticationSuccessHandler">
+		<beans:property name="changePasswordPage" value="/changepwd"/>
+	</beans:bean>
+	<beans:bean id="authenticationfailurehandler"
+		class="com.eling.elcms.core.security.filter.SignAuthenticationFailureHandler">
+	</beans:bean>
+
+
+    <authentication-manager  alias="authenticationManager">
+        <authentication-provider user-service-ref="userDao">
+            <password-encoder ref="passwordEncoder">
+            </password-encoder>
+        </authentication-provider>
+        <authentication-provider ref="noPwdTokenBasedPreAuth"/>
+        <authentication-provider ref="tokenBasedPreAuth"/>
+		<authentication-provider ref="elingRememberMeAuthentioncationProvider" />
+    </authentication-manager>
+
+	<!-- 使用自己的禁止访问处理器，加入Ajax的从定向信息，需要Ajax调用特殊处理 -->
+	<beans:bean id="authenticationEntryPoint"
+		class="com.eling.elcms.core.security.web.AjaxAwareAuthenticationEntryPoint">
+		<beans:constructor-arg value="/sign_in"/>
+	</beans:bean>
+
+	<!-- Override the default password-encoder (BCrypt) by uncommenting the 
+		following and changing the class -->
+    <!-- <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> -->
+
+    <global-method-security>
+		<protect-pointcut expression="execution(* *..service.UserManager.getUsers(..))"
+			access="ROLE_ADMIN" />
+		<protect-pointcut expression="execution(* *..service.UserManager.removeUser(..))"
+			access="ROLE_ADMIN" />
+    </global-method-security>
+</beans:beans>

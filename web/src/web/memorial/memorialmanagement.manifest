@@ -1,0 +1,6 @@
+CACHE MANIFEST
+#v1.0.0
+CACHE:
+../base.js
+NETWORK:
+*

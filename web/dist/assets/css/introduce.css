@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font:16px/1.5 tahoma, arial, 'Hiragino Sans GB', "microsoft yahei", sans-serif;
+	width:100%;
+	height:100%;
+}
+*, p{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+a{
+	color:#000;
+	cursor:pointer;
+}
+a:hover{
+	color:red;
+	text-decoration:none;
+}
+
+h1, h2{
+	color:#a23711;
+	margin:0;
+	padding:0;
+	line-height:40px;
+}
+
+/*顶部*/
+.header-top {
+	background:#007987;
+	padding:5px 0;
+	color:#faebdb;
+}
+.header-top a{
+	color:#faebdb;
+	padding:0 10px;
+}
+.header-top a:hover{
+	color:#fff;
+}
+.topnav-left, .topnav-right{
+	padding:10px 0;
+	color:#fff;
+}
+.topnav-right em{
+	color:#fff;
+}
+/**/
+.msg{
+	width:100%;
+	background-image:url("../images/bg1.png");
+	background-size: 100% 100%;
+	height:949px;
+	text-align:right;
+	color:#7a5b33;
+}
+#msg-banner{
+	position: relative;
+}
+#introduce-bg{
+	width:600px;
+	height:160px;
+	position: absolute;
+	left:200px;
+	top:100px;
+}
+#ijibai{
+	position: absolute;
+	right:150px;
+	bottom:50px;
+}
+.msg p{
+	font-size:26px;
+	padding-top:10px;
+	line-height:35px;
+}
+
+.msg a{
+	background:#00b38a;
+	display:block;
+	padding:5px 20px;
+	float:right;
+	font-size:20px;
+	margin-top:10px;
+	color:#fff;
+}
+
+.msg a:hover{
+	background:#00b38a;
+}
+.introduce{
+	width:100%;
+	height:1200px;
+	background-image: url("../images/bg3.png");
+	background-size: 100% 100%;
+}
+#celebrity{
+	overflow: hidden;
+	width:100%;
+}
+#celebrity-slider{
+	height:160px;
+}

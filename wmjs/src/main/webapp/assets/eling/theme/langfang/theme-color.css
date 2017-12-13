@@ -1,0 +1,305 @@
+﻿body.el-login {
+    background-color: #E40E0E;
+}
+
+header .navbar > .nav > li.medium > a {
+    background: #f93838;
+}
+
+header .navbar .navbar-brand .logo {
+    height: 80%;
+}
+
+.logo .J-signin-right {
+    margin-top: 15px;
+}
+
+header .navbar .toggle-nav {
+    color: white;
+    text-shadow: none;
+    vertical-align: middle;
+    padding: 4px 12px;
+    margin-top: 5px;
+    margin-left: 15px;
+    background-color: #f93838;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+header .navbar {
+    margin: 0;
+    padding: 0 15px;
+    background-color: #f93838;
+    border: none;
+    min-height: 40px;
+    height: 40px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+}
+
+.contrast-langfang header .navbar {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar .toggle-nav {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar .toggle-nav:active, .contrast-langfang header .navbar .toggle-nav.active, .contrast-langfang header .navbar .toggle-nav:hover {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar .navbar-form button {
+    color: #f93838;
+}
+
+.contrast-langfang header .navbar .navbar-form button:hover {
+    color: #f93838;
+}
+
+.contrast-langfang header .navbar .navbar-form input {
+    border-color: #f93838;
+    color: #f93838;
+}
+
+.contrast-langfang header .navbar .navbar-form input:-moz-placeholder {
+    color: #f67471;
+}
+
+.contrast-langfang header .navbar .navbar-form input:-ms-input-placeholder {
+    color: #f67471;
+}
+
+.contrast-langfang header .navbar .navbar-form input::-webkit-input-placeholder {
+    color: #f67471;
+}
+
+.contrast-langfang header .navbar .navbar-form input:hover:-moz-placeholder {
+    color: #f9a3a1;
+}
+
+.contrast-langfang header .navbar .navbar-form input:hover:-ms-input-placeholder {
+    color: #f9a3a1;
+}
+
+.contrast-langfang header .navbar .navbar-form input:hover::-webkit-input-placeholder {
+    color: #f9a3a1;
+}
+
+.contrast-langfang header .navbar .navbar-form input:focus {
+    border-color: #c2100c;
+}
+
+.contrast-langfang header .navbar .navbar-form input:focus:-moz-placeholder {
+    color: #f88b89;
+}
+
+.contrast-langfang header .navbar .navbar-form input:focus:-ms-input-placeholder {
+    color: #f88b89;
+}
+
+.contrast-langfang header .navbar .navbar-form input:focus::-webkit-input-placeholder {
+    color: #f88b89;
+}
+
+.contrast-langfang header .navbar > .nav > li.light > a {
+    background: #f01b16;
+}
+
+.contrast-langfang header .navbar > .nav > li.light > a .label {
+    color: #f01b16;
+}
+
+.contrast-langfang header .navbar > .nav > li.light > a:hover, .contrast-langfang header .navbar > .nav > li.light > a:active, .contrast-langfang header .navbar > .nav > li.light > a:focus {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar > .nav > li.medium > a {
+    background: #f93838;
+}
+
+.contrast-langfang header .navbar > .nav > li.medium > a .label {
+    color: #f93838;
+}
+
+.contrast-langfang header .navbar > .nav > li.medium > a:hover > a, .contrast-langfang header .navbar > .nav > li.medium > a:active > a, .contrast-langfang header .navbar > .nav > li.medium > a:focus > a {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar > .nav > li.dark > a {
+    background: #f93838;
+}
+
+.contrast-langfang header .navbar > .nav > li.dark > a .label {
+    color: #f93838;
+}
+
+.contrast-langfang header .navbar > .nav > li.dark > a:hover > a, .contrast-langfang header .navbar > .nav > li.dark > a:active > a, .contrast-langfang header .navbar > .nav > li.dark > a:focus > a {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar .widget .dropdown-menu > li.widget-footer a:hover {
+    background-color: #f93838;
+}
+
+.contrast-langfang header .navbar .nav li .label {
+    color: #f93838;
+}
+
+.contrast-langfang .nav .caret, .contrast-langfang .nav a:hover .caret {
+    border-top-color: #f93838;
+    border-bottom-color: #f93838;
+}
+
+.contrast-langfang code {
+    background-color: #f3e5e6;
+    color: #f35551;
+}
+
+.contrast-langfang #main-nav .navigation > .nav > li > a.in [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li > a.in [class*=" icon-"] {
+    color: #f93838;
+}
+
+.contrast-langfang #main-nav .navigation > .nav > li:hover > a [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li:hover > a [class*=" icon-"], .contrast-langfang #main-nav .navigation > .nav > li:focus > a [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li:focus > a [class*=" icon-"], .contrast-langfang #main-nav .navigation > .nav > li.active > a [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li.active > a [class*=" icon-"] {
+    color: #f93838 !important;
+}
+
+.contrast-langfang #main-nav .navigation > .nav > li .nav > li.active > a [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
+    color: #f93838;
+}
+
+.contrast-langfang #main-nav .navigation > .nav > li .nav > li > a:hover [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li .nav > li > a:hover [class*=" icon-"], .contrast-langfang #main-nav .navigation > .nav > li .nav > li > a:focus [class^="icon-"], .contrast-langfang #main-nav .navigation > .nav > li .nav > li > a:focus [class*=" icon-"] {
+    color: #f93838;
+}
+
+.contrast-langfang .box .box-header.contrast-background .actions .btn-link:hover {
+    color: #f93838 !important;
+}
+
+.contrast-langfang.contrast-background, .contrast-langfang .contrast-background {
+    background: #f93838 !important;
+}
+
+.contrast-langfang .text-contrast, .contrast-langfang .contrast {
+    color: #f93838 !important;
+}
+
+.contrast-langfang .contrast-border {
+    border-color: #f93838 !important;
+}
+
+.contrast-langfang .accordion.accordion-contrast .accordion-group {
+    border-color: #f93838;
+    border-bottom-color: #f9a3a1;
+}
+
+.contrast-langfang .accordion.accordion-contrast .accordion-heading .accordion-toggle {
+    color: white;
+    background-color: #f93838;
+}
+
+.contrast-langfang .box-quick-link.contrast-background a:active .header {
+    background: #f93838;
+}
+
+.contrast-langfang .box-quick-link.contrast-background:hover .header {
+    background: #f93838;
+}
+
+.contrast-langfang .box-statistic.contrast-background .title, .contrast-langfang .box-statistic.contrast-background small, .contrast-langfang .box-statistic.contrast-background [class*="icon-"] {
+    color: #f93838 !important;
+}
+
+.contrast-langfang .breadcrumb li:first-child > a:hover {
+    color: #f93838 !important;
+}
+
+.contrast-langfang h1 [class^="icon-"] {
+    color: #f93838;
+}
+
+.contrast-langfang .dropdown-menu > .active > a, .contrast-langfang .dropdown-menu > .active > a:hover, .contrast-langfang .dropdown-menu > .active > a:focus, .contrast-langfang .dropdown-menu > li > a:hover, .contrast-langfang .dropdown-menu > li > a:focus, .contrast-langfang .dropdown-submenu:hover > a, .contrast-langfang .dropdown-submenu:focus > a {
+    background-color: #f93838 !important;
+}
+
+.contrast-langfang .box .box-header .actions .btn-link:hover {
+    color: #f93838;
+}
+
+.contrast-langfang .fc-event .fc-event-inner {
+    border-color: #f93838;
+    background-color: #f93838;
+}
+
+.contrast-langfang .contrast-caret {
+    border-top-color: #f93838 !important;
+    border-bottom-color: #f93838 !important;
+}
+
+.contrast-langfang .select2-results .select2-highlighted {
+    background: #f93838;
+}
+
+.contrast-langfang .daterangepicker .ranges li.active, .contrast-langfang .daterangepicker .ranges li:hover {
+    background: #f93838;
+}
+
+.contrast-langfang .daterangepicker td.active, .contrast-langfang .daterangepicker td.active:hover {
+    background: #f93838;
+}
+
+.contrast-langfang .datepicker td span.active:hover, .contrast-langfang .datepicker td span.active:hover:hover, .contrast-langfang .datepicker td span.active.disabled:hover, .contrast-langfang .datepicker td span.active.disabled:hover:hover, .contrast-langfang .datepicker td span.active:active, .contrast-langfang .datepicker td span.active:hover:active, .contrast-langfang .datepicker td span.active.disabled:active, .contrast-langfang .datepicker td span.active.disabled:hover:active, .contrast-langfang .datepicker td span.active.active, .contrast-langfang .datepicker td span.active:hover.active, .contrast-langfang .datepicker td span.active.disabled.active, .contrast-langfang .datepicker td span.active.disabled:hover.active, .contrast-langfang .datepicker td span.active.disabled, .contrast-langfang .datepicker td span.active:hover.disabled, .contrast-langfang .datepicker td span.active.disabled.disabled, .contrast-langfang .datepicker td span.active.disabled:hover.disabled, .contrast-langfang .datepicker td span.active[disabled], .contrast-langfang .datepicker td span.active:hover[disabled], .contrast-langfang .datepicker td span.active.disabled[disabled], .contrast-langfang .datepicker td span.active.disabled:hover[disabled], .contrast-langfang .datepicker td.active:hover, .contrast-langfang .datepicker td.active:hover:hover, .contrast-langfang .datepicker td.active.disabled:hover, .contrast-langfang .datepicker td.active.disabled:hover:hover, .contrast-langfang .datepicker td.active:active, .contrast-langfang .datepicker td.active:hover:active, .contrast-langfang .datepicker td.active.disabled:active, .contrast-langfang .datepicker td.active.disabled:hover:active, .contrast-langfang .datepicker td.active.active, .contrast-langfang .datepicker td.active:hover.active, .contrast-langfang .datepicker td.active.disabled.active, .contrast-langfang .datepicker td.active.disabled:hover.active, .contrast-langfang .datepicker td.active.disabled, .contrast-langfang .datepicker td.active:hover.disabled, .contrast-langfang .datepicker td.active.disabled.disabled, .contrast-langfang .datepicker td.active.disabled:hover.disabled, .contrast-langfang .datepicker td.active[disabled], .contrast-langfang .datepicker td.active:hover[disabled], .contrast-langfang .datepicker td.active.disabled[disabled], .contrast-langfang .datepicker td.active.disabled:hover[disabled] {
+    background: #f93838;
+}
+
+.contrast-langfang .dropdown-menu > .active > a, .contrast-langfang .dropdown-menu > .active > a:hover, .contrast-langfang .dropdown-menu > .active > a:focus {
+    background: #f93838;
+}
+
+.contrast-langfang .dd-handle:hover {
+    color: #f93838;
+}
+
+.contrast-langfang .dd-placeholder {
+    border-color: #f93838;
+}
+
+.contrast-langfang .el-headerbar {
+    background-color: #f93838;
+
+}
+
+/*****为了主题的扩展*****/
+.contrast-langfang .btn-theme {
+    color: white;
+    background-color: #f93838;
+}
+
+.contrast-langfang .btn-group.open .btn-theme.dropdown-toggle,
+.contrast-langfang .btn-theme {
+    background-color: #f93838;
+}
+
+.contrast-langfang .btn-group.open .btn-theme.dropdown-toggle:hover,
+.contrast-langfang .btn-theme:hover {
+    background-color: #f93838;
+}
+
+.contrast-langfang .text-theme {
+    color: #f93838;
+}
+
+.contrast-langfang .el-mainframe .logo {
+    width: 160px;
+    height: 40px;
+}
+
+.contrast-langfang .el-mainframe .logo-xs {
+    width: 21px;
+    height: 21px;
+}

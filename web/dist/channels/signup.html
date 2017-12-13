@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset=utf-8"UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>廊坊市文明祭奠网 - 注册帐号</title>
+    <link rel="icon name" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../common/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/css/login-main.css">
+    <link rel="stylesheet" href="../assets/css/signup.css">
+    <script src="../common/js/jquery.js"></script>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="../assets/css/ie8.min.css">
+    <script src="../common/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="../common/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="header container">
+    <div class="user-wrap container">
+        <img class="tsm-logo" src="../assets/images/tsm-logo-white.png">
+        <p class="user-tips col-md-4">欢迎注册</p>
+        <p class="title-right-corner"><span class="font-white">已有账号，</span> <a href="./login.html" class="font-yellow">直接登录</a></p>
+        <div class="user-field fixed">
+            <div class="signup-inner container">
+                <form class="col-md-12 col-xs-12" action="" method="post">
+                    <div class="input-group col-md-6 col-xs-6">
+                        <input type="text" id="inputEmail3" class="form-control tsm-input signup-tel" placeholder="手机">
+                        <div class="group-tips one-line" id="telError" style="display:none;">
+                            <img src="../assets/images/icon-error.png">
+                            手机是找回纪念馆重要依据
+                        </div>
+                    </div>
+                    <div class="input-group col-md-6 col-xs-6">
+                        <input type="password" id="inputPassword3" class="form-control tsm-input signup-pwd" placeholder="密码">
+                        <div class="group-tips one-line" id="passError" style="display:none;">
+                            <img src="../assets/images/icon-error.png">
+                            密码错误
+                        </div>
+                    </div>
+                    <div class="input-group col-md-6 col-xs-6">
+                        <input type="text" id="imgVerify2" class="form-control tsm-input signup-verify" placeholder="图片验证码">
+                        <div class="btn btn-verify" style="padding-left:0;">
+                            <img id="img2" style="height: 35px;width: 160px;" src=""/>
+                            <a href="javascript:void(0);" onclick="Image_Repeat()">换一张</a>
+                        </div>
+                        <div id="verError" class="group-tips two-line" style="display:none;">
+                            <img src="../assets/images/icon-error.png">
+                            验证码错误
+                        </div>
+                    </div>
+                    <div class="input-group col-md-6 col-xs-6">
+                        <input type="text" id="imgVerify" class="form-control tsm-input signup-verify" placeholder="动态验证码">
+                        <button type="button" id="btn_sendVerifyCode" class="btn btn-default btn-verify">获取验证码</button>
+                        <input id="PValHidden1" type="hidden" />
+                        <div class="group-tips two-line" id="regError" style="display:none;">
+                            <img src="../assets/images/icon-error.png">
+                            系统已向该手机发送了动态验证码，请及时使用，3分钟后自动失效。
+                        </div>
+                    </div>
+                    <!--<div class="input-group col-md-6 col-xs-6">
+                        <input type="checkbox" class="tsm-checkbox" id="checkbox1" checked>
+                        <span> 我已阅读并接受<a href="http://www.tsingming.com/agreement.html" target="_blank">《清明网用户协议》</a> </span>
+                    </div>-->
+                    <button type="button" id="btn_reg" class="btn btn-signup col-md-12 font-white">注册</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-user">
+        冀ICP备16021699号-1 Copyright © 2016-2017 LFSMZJG.ORG ALL Rights Reserved
+    </div>
+    <script src="../common/js/ServerConfig.js"></script>
+    <script type="text/javascript" language="javascript">
+        var SERVER_URL = ServerConfig().SERVER_URL;
+        var tel_reg = /^\d{11}$/;
+        var telFlag = false;
+        var passFlag = false;
+        var verifyFlag = false;
+        $(function () {
+            //同意协议
+            /* $("#checkbox1").change(function () {
+             if ($("#checkbox1").is(":checked")) {
+             $("#btn_reg").removeClass("disabled");
+             }
+             else {
+             $("#btn_reg").addClass("disabled");
+             }
+             });*/
+
+            //手机文本框失去焦点事件
+            $("#inputEmail3").blur(function () {
+                var address = $(this).val();
+                if (address == "") {
+                    $("#telError").html("<img src='../assets/images/icon-error.png'>请填写正确的手机");
+                    $("#telError").show();
+                    telFlag = false;
+                    return false;
+                }else if (IsNum(address)) {
+                    if (!tel_reg.test(address)) {
+                        $("#telError").html("<img src='../assets/images/icon-error.png'>您填写的手机号格式有误，请输入11位大陆手机号码");
+                        $("#telError").show();
+                        telFlag = false;
+                        return false;
+                    }else {
+                        $.ajax({
+                            url: SERVER_URL+'api/generaluser/phoneexists',
+                            type: 'get',
+                            dataType:"json",
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            crossDomain: true,
+                            data: {
+                                "pkOrganization":899,
+                                "phone":address
+                            },
+                            success: function (data) {
+                                if(data.msg =="error"){
+                                    $("#telError").html("<img src='../assets/images/icon-error.png'>该手机号已被注册，请更换");
+                                    $("#telError").show();
+                                    telFlag = false;
+                                    return false;
+                                }else{
+                                    $("#telError").hide();
+                                    telFlag = true;
+                                }
+                            }
+                        })
+                    }
+                }
+            });
+
+            //验证密码
+            $("#inputPassword3").blur(function () {
+                var password = $(this).val();
+                var r2 = /[^!-~]/; //特殊字符
+                if (password == "") {
+                    $("#passError").html("<img src='../assets/images/icon-error.png'>密码不能为空");
+                    $("#passError").show();
+                    passFlag = false;
+                    return false;
+                }else {
+                    if (r2.test(password)) {
+                        $("#passError").html("<img src='../assets/images/icon-error.png'>支持数字,大小写字母和标点符号");
+                        $("#passError").show();
+                        passFlag = false;
+                        return;
+                    }else if (password.length < 6 || password.length > 16) {
+                        $("#passError").html("<img src='../assets/images/icon-error.png'>密码位数在6-16位之间");
+                        $("#passError").show();
+                        passFlag = false;
+                        return false;
+                    }else {
+                        $("#passError").hide();
+                        passFlag = true;
+                    }
+                }
+            });
+
+            //动态验证码
+            $("#imgVerify").blur(function () {
+                var code = $(this).val();
+                if (code == "") {
+                    $("#regError").html("<img src='../assets/images/icon-error.png'>请输入验证码");
+                    $("#regError").show();
+                    verifyFlag = false;
+                    return false;
+                }else if (code.length != 6) {
+                    $("#regError").html("<img src='../assets/images/icon-error.png'>验证码位数不对");
+                    $("#regError").show();
+                    verifyFlag = false;
+                    return false;
+                }else {
+                    $("#regError").hide();
+                    verifyFlag = true;
+                }
+            });
+        });
+
+        //点击获取手机验证码按钮
+        $("#btn_sendVerifyCode").click(function () {
+            var messageVerifyCode = "";
+            var address = $("#inputEmail3").val();
+            var imgcode = $("#imgVerify2").val();
+            var registerName = $.trim(address); //手机号码
+            var c = $.trim(imgcode);
+            $("#regError").hide();
+            if (address == "") {
+                $("#telError").html("<img src='../assets/images/icon-error.png'>手机不能为空");
+                $("#telError").show();
+                return false;
+            }
+            if (telFlag == false) {
+                $("#telError").html("<img src='../assets/images/icon-error.png'>请填写正确的手机");
+                $("#telError").show();
+                return false;
+            }
+            if (!$.trim(c) || c.length != 5){
+                $("#regError").html("<img src='../assets/images/icon-error.png'>图片验证码错误");
+                $("#regError").show();
+                return false;
+            }
+
+            //向用户发送验证码
+            $.ajax({
+                url: SERVER_URL+'api/generaluser/getvalidatecode',
+                type: 'get',
+                dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: {
+                    "pkOrganization":899,
+                    "phone":registerName,
+                    "register":c,
+                    "csid":8560
+                },
+                success: function (slt) {
+                    if(slt.msg=='capthchaNotExist'){
+                        $("#regError").html("<img src='../assets/images/icon-error.png'>图片验证码不存在");
+                        $("#regError").show();
+                    }else if(slt.msg=='captchaTimeout'){
+                        $("#regError").html("<img src='../assets/images/icon-error.png'>图片验证码已失效");
+                        $("#regError").show();
+                    }else if(slt.msg=='captchaNotMatch'){
+                        $("#regError").html("<img src='../assets/images/icon-error.png'>图片验证码错误");
+                        $("#regError").show();
+                    }else if(slt.msg=='success'){
+                        $("#PValHidden1").val(messageVerifyCode);
+                        $("#regError").html("系统已向该手机发送了动态验证码，请及时使用，2分钟后自动失效。");
+                        $("#regError").show();
+                        time($("#btn_sendVerifyCode"));
+                    }else {
+                        $("#regError").html("<img src='../assets/images/icon-error.png'>信息发送失败!");
+                        $("#regError").show();
+                    }
+                }
+            })
+        });
+
+        var wait = 120;
+        function time(o) {
+            if (wait == 0) {
+                o.removeAttr("disabled");
+                o.html("发送验证码");
+                document.getElementById("PValHidden1").value = "";
+                wait = 120;
+            } else {
+                o.attr("disabled", true);
+                o.html("重新获取(" + wait + ")");
+                wait--;
+                setTimeout(function () {
+                        time(o)
+                    },
+                    1000)
+            }
+        }
+        var loginTime = 5;
+        function login(phone) {
+            if (loginTime == 0) {
+                window.location = "./login.html?phone="+phone;
+            }else{
+                $("#btn_reg").html("注册成功," + loginTime + "s后跳转登录页面");
+                loginTime--;
+            }
+            setTimeout(function () {
+                login(phone)
+            },1000)
+        }
+        //注册
+        $("#btn_reg").click(function () {
+            $("#btn_reg").addClass("disabled");
+            var registerName = $("#inputEmail3").val().trim(); //手机号码
+            var password = $("#inputPassword3").val().trim();  //密码
+            var code = $("#imgVerify").val();                  //验证码
+
+            if (registerName == "") {
+                $("#telError").html("<img src='../assets/images/icon-error.png'>手机号码不能为空");
+                $("#telError").show();
+                $("#btn_reg").removeClass("disabled");
+                return false;
+            }
+            if (password == "") {
+                $("#passError").html("<img src='../assets/images/icon-error.png'>密码不能为空");
+                $("#passError").show();
+                $("#btn_reg").removeClass("disabled");
+                return false;
+            }
+            if (code == "") {
+                $("#regError").html("<img src='../assets/images/icon-error.png'>验证码不能为空");
+                $("#regError").show();
+                $("#btn_reg").removeClass("disabled");
+                return false;
+            }
+
+            if (telFlag == false || passFlag == false || verifyFlag == false) {
+                $("#btn_reg").removeClass("disabled");
+                return false;
+            }
+            //注册
+            $.ajax({
+                url: SERVER_URL+'api/generaluser/submitmemorial',
+                type: 'post',
+                dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: {
+                    "pkOrg":899,
+                    "phone":registerName,
+                    "validatecode":code,
+                    "password":password,
+                    "code":registerName,
+                    "source":"new"
+                },
+                success: function (data) {
+                    if (data.msg == "RegisterSuccess") {
+                        login(registerName);
+                    }else if (data.msg == "RegisterError") {
+                        $("#telError").html("<img src='../assets/images/icon-error.png'>注册失败，请重试");
+                        $("#telError").show();
+                        return false;
+                    }else if (data.msg == "RegisterError") {
+                        $("#telError").html("<img src='../assets/images/icon-error.png'>该号码已被注册，请重新输入");
+                        $("#telError").show();
+                        return false;
+                    }else if (data.msg == "AccountAlreadyExists") {
+                        $("#telError").html("<img src='../assets/images/icon-error.png'>该号码已被注册，请重新输入");
+                        $("#telError").show();
+                        return false;
+                    }else if (data.msg == "CodeError") {
+                        $("#regError").html("<img src='../assets/images/icon-error.png'>验证码错误，请重新输入");
+                        $("#regError").show();
+                        return false;
+                    }
+                }
+            });
+            $("#btn_reg").removeClass("disabled");
+        });
+
+        //判断是否是正整数
+        function IsNum(s) {
+            if (s != null) {
+                var r, re;
+                re = /\d*/i; //\d表示数字,*表示匹配多个数字
+                r = s.match(re);
+                return (r == s) ? true : false;
+            }
+            return false;
+        }
+        //图片验证码切换
+        Image_Repeat();
+        function Image_Repeat(event) {
+            $.ajax({
+                url: SERVER_URL+'api/generaluser/getpicture',
+                type: 'get',
+                dataType:"json",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                data: {},
+                success: function (data) {
+                    $("#img2").attr("src",'data:image/png;base64,'+data.msg)
+                }
+            });
+        }
+    </script>
+</header>
+</body>
+</html>

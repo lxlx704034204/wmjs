@@ -1,0 +1,77 @@
+﻿
+/**pager**/
+#pager {
+    padding: 0px 10px;
+    float: right;
+}
+
+    #pager span {
+        display: block;
+        float: left;
+        padding: 0.3em 0.8em;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+        #pager span.current {
+            background: #26B;
+            color: #fff;
+            border: solid 1px #337ab7;
+        }
+
+        #pager span.disenable {
+            color: #999;
+            background: #fff;
+            border: solid 1px #337ab7;
+        }
+
+        #pager span.text {
+            padding: 0.3em 0;
+            color: #999999;
+        }
+
+    #pager a {
+        display: block;
+        float: left;
+        padding: 0.3em 0.8em;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        text-decoration: none;
+        border: solid 1px #337ab7;
+        color: #15B;
+    }
+
+        #pager a:hover {
+            border: solid 1px #26B;
+            color: #26B;
+        }
+
+    #pager input[type=text] {
+        padding: 0px 2px;
+        border: solid 1px #337ab7;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    #pager button {
+        cursor: pointer;
+        border: solid 1px #337ab7;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        padding: 0px 3px;
+        color: #404040;
+        background: white;
+    }
+
+        #pager button:hover {
+            border: solid 1px #26B;
+            color: #26B;
+        }
