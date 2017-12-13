@@ -40,7 +40,7 @@ class Share extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         let memorialName = this.props.data?this.props.data.personalInfo.name:"";
-        let text = "你好，这是我在廊坊市文明祭奠网上为【"+memorialName+"】创建的网上纪念馆，希望你能前来祭拜，用我们的爱温暖整个天堂！谢谢！纪念馆网址："+window.location.href;
+        let text = "你好，这是我在逝者网上祭奠平台上为【"+memorialName+"】创建的网上纪念馆，希望你能前来祭拜，用我们的爱温暖整个天堂！谢谢！纪念馆网址："+window.location.href;
         return (
             <div className="shareBox">
                 <b onClick={this.showModal.bind(this)}>邀请亲友来祭拜</b>
