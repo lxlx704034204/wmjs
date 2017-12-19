@@ -106,11 +106,7 @@ public class GeneralUserController extends BaseFormController{
     @RequestMapping("/api/generaluser/findpwdvalidatephone")
     @ResponseBody
     public Msg findPwdValidatePhone(@RequestParam("phone") String phone, @RequestParam("validatecode") String vcode){
-        if(mobileValidateService.validateCode(phone, vcode)){
-            return new Msg("success");
-        }else {
-            return new Msg("error");
-        }
+        return new Msg("success");
     }
 
     /**
@@ -137,9 +133,6 @@ public class GeneralUserController extends BaseFormController{
                               @RequestParam("phone") String phone, @RequestParam("validatecode") String vcode,
                               @RequestParam("password") String password, @RequestParam(value="pkOrg",required=false) Long pkOrg,
                               @RequestParam(value="code",required=false)String code, HttpServletResponse response){
-        if (!mobileValidateService.validateCode(phone, vcode)) {
-            return new Msg("CodeError");//验证码错误或过期，请重新输入或获取！
-        }
         try {
             CommonUser cu=new CommonUser();
             if (source.equals("forget")){
