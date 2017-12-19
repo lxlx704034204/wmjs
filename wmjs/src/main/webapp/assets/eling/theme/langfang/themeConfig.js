@@ -1,3 +1,3 @@
 define({
-	title: "文明祭扫"
+	title: "网上祭奠"
 });

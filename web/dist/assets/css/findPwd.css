@@ -79,12 +79,12 @@
 .user-tips {
     font-size:22px;
     color:#fff;
-    line-height:53px
+    /*line-height:53px*/
 }
 .title-right-corner {
     float:right;
     font-size:15px;
-    margin-top:25px
+    /*margin-top:25px*/
 }
 @media (max-width:991px) {
     .title-right-corner {
